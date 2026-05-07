@@ -1,10 +1,10 @@
 import type { Song, Album, Playlist, Favorite } from '@/types';
 
 const mockSongs: Song[] = [
-  { id: "1", title: "See Tinh", artist: "Hoang Thuy Linh", thumbnail: "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/d/b/1/1/db11f9bb085242d06f298939da35a094.jpg", albumId: "1", url: "/musics/test.mp3" },
-  { id: "2", title: "Waiting For You", artist: "Mono", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=WFY", albumId: "1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
-  { id: "3", title: "Em La Ke Dang Thuong", artist: "Phat Ho", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=EL", albumId: "2", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
-  { id: "4", title: "Chung Ta Cua Tuong Lai", artist: "Son Tung M-TP", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=CT", albumId: "2", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+  { id: "1", title: "Hồng Nhan", artist: "Jack", thumbnail: "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/d/b/1/1/db11f9bb085242d06f298939da35a094.jpg", albumId: "1", url: "/musics/hongnhan.mp3" },
+  { id: "2", title: "Bạc Phận", artist: "Jack", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=WFY", albumId: "1", url: "/musics/bacphan.mp3" },
+  { id: "3", title: "Sóng Gió", artist: "jack", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=EL", albumId: "2", url: "/musics/songgio.mp3" },
+  { id: "4", title: "Thiên Lý Ơi", artist: "Jack", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=CT", albumId: "2", url: "/musics/thienlyoi.mp3" },
   { id: "5", title: "Anh Nho Ra", artist: "Vu.", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=ANR", albumId: "3", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
   { id: "6", title: "Bat Tinh Yeu Len", artist: "Hoa Minzy, Tang Duy Tan", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=BTYL", albumId: "3", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
   { id: "7", title: "Cat Doi Noi Sau", artist: "Tang Duy Tan", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=CDNS", albumId: "1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
