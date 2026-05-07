@@ -18,7 +18,7 @@ interface SongCardProps {
 }
 
 export default function SongCard({ song, isFavorite, showIndex, onToggleFavorite, onAddToPlaylist }: SongCardProps) {
-  const { currentSong, isPlaying, playSong, togglePlay, duration, audioElement } = usePlayerStore();
+  const { currentSong, isPlaying, playSong, togglePlay } = usePlayerStore();
   const isCurrentSong = currentSong?.id === song.id;
 
   const [realDuration, setRealDuration] = useState<number | null>(null);
