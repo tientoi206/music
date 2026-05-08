@@ -80,7 +80,7 @@ export default function PlayerBar() {
           onCancel={() => setQueueOpen(false)}
           footer={null}
           width="95%"
-          styles={{ content: { background: "#1a1a2e", border: "1px solid #16213e" }, header: { background: "#1a1a2e", borderBottom: "1px solid #16213e" } }}
+          styles={{ body: { background: "#1a1a2e", border: "1px solid #16213e" }, header: { background: "#1a1a2e", borderBottom: "1px solid #16213e" } }}
         >
           {queue.length === 0 ? (
             <Text style={{ color: "#666", display: "block", textAlign: "center", padding: 20 }}>Danh sách phát trống</Text>
@@ -160,7 +160,7 @@ export default function PlayerBar() {
         onCancel={() => setQueueOpen(false)}
         footer={null}
         width={500}
-        styles={{ content: { background: "#1a1a2e", border: "1px solid #16213e" }, header: { background: "#1a1a2e", borderBottom: "1px solid #16213e" } }}
+        styles={{ body: { background: "#1a1a2e", border: "1px solid #16213e" }, header: { background: "#1a1a2e", borderBottom: "1px solid #16213e" } }}
       >
         {queue.length === 0 ? (
           <Text style={{ color: "#666", display: "block", textAlign: "center", padding: 20 }}>Danh sách phát trống</Text>

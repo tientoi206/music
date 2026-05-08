@@ -1,8 +1,8 @@
 import { create } from 'zustand';
-import type { AuthUser } from '@/types';
+import type { User } from '@/types';
 
 interface AuthStore {
-  user: AuthUser | null;
+  user: User | null;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<boolean>;
   register: (name: string, email: string, password: string) => Promise<boolean>;
@@ -11,11 +11,11 @@ interface AuthStore {
 }
 
 // Mock users for demo
-interface MockUser extends AuthUser {
+interface MockUser extends User {
   password: string;
 }
 
-let mockUsers: MockUser[] = [
+const mockUsers: MockUser[] = [
   { id: "u1", name: "Admin", email: "admin@musicapp.com", password: "123456", avatar: "" },
 ];
 
