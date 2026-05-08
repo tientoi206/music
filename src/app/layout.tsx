@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import AppLayout from "@/components/Layout/AppLayout";
+import ClientLayout from "./ClientLayout";
 
 export const metadata: Metadata = {
-  title: "MusicApp - Nghe nhạc trực tuyến",
+  title: "TTMusic - Nghe nhạc trực tuyến",
   description: "Ứng dụng nghe nhạc trực tuyến với hàng ngàn bài hát hot nhất",
 };
 
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body>
-        <AppLayout>{children}</AppLayout>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

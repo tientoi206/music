@@ -20,6 +20,14 @@ interface SongCardProps {
 export default function SongCard({ song, isFavorite, showIndex, onToggleFavorite, onAddToPlaylist }: SongCardProps) {
   const { currentSong, isPlaying, playSong, togglePlay } = usePlayerStore();
   const isCurrentSong = currentSong?.id === song.id;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const [realDuration, setRealDuration] = useState<number | null>(null);
 
@@ -57,12 +65,14 @@ export default function SongCard({ song, isFavorite, showIndex, onToggleFavorite
     }
   };
 
+  const imgSize = isMobile ? 40 : 48;
+
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
-        padding: "8px 12px",
+        padding: isMobile ? "6px 8px" : "8px 12px",
         borderRadius: 8,
         cursor: "pointer",
         background: isCurrentSong ? "rgba(29, 185, 84, 0.1)" : "transparent",
@@ -73,77 +83,77 @@ export default function SongCard({ song, isFavorite, showIndex, onToggleFavorite
       onMouseEnter={(e) => { if (!isCurrentSong) e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}
       onMouseLeave={(e) => { if (!isCurrentSong) e.currentTarget.style.background = "transparent"; }}
     >
-      <div style={{ position: "relative", marginRight: 12, flexShrink: 0, width: 48, height: 48 }}>
-        {showIndex !== undefined ? (
-          <div style={{ width: 48, height: 48, display: "flex", alignItems: "center", justifyContent: "center", color: isCurrentSong ? "#1DB954" : "#666", fontSize: 14, fontWeight: 500 }}>
-            {isCurrentSong && isPlaying ? (
-              <PauseCircleOutlined style={{ fontSize: 24, color: "#1DB954" }} />
-            ) : (
-              showIndex + 1
-            )}
+      <div style={{ position: "relative", marginRight: 10, flexShrink: 0, width: imgSize, height: imgSize }}>
+        {showIndex !== undefined && (
+          <div style={{
+            position: "absolute", top: -6, left: -6, zIndex: 2,
+            width: isMobile ? 18 : 20, height: isMobile ? 18 : 20,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            background: isCurrentSong ? "#1DB954" : "#333",
+            borderRadius: "50%",
+            color: "#fff", fontSize: isMobile ? 9 : 10, fontWeight: 600,
+          }}>
+            {showIndex + 1}
           </div>
-        ) : (
-          <>
-            <Image
-              src={song.thumbnail}
-              alt={song.title}
-              width={48}
-              height={48}
-              style={{ borderRadius: 4, objectFit: "cover" }}
-              preview={false}
-              fallback="https://via.placeholder.com/48/1a1a2e/666"
-            />
-            <div
-              onClick={handlePlay}
-              style={{
-                position: "absolute", top: 0, left: 0, right: 0, bottom: 0,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                background: "rgba(0,0,0,0.5)", borderRadius: 4, opacity: 0,
-                transition: "opacity 0.3s", cursor: "pointer",
-              }}
-              className="play-overlay"
-            >
-              {isCurrentSong && isPlaying ? (
-                <PauseCircleOutlined style={{ fontSize: 24, color: "#fff" }} />
-              ) : (
-                <PlayCircleOutlined style={{ fontSize: 24, color: "#fff" }} />
-              )}
-            </div>
-          </>
         )}
+        <Image
+          src={song.thumbnail}
+          alt={song.title}
+          width={imgSize}
+          height={imgSize}
+          style={{ borderRadius: 4, objectFit: "cover" }}
+          preview={false}
+          fallback="https://via.placeholder.com/48/1a1a2e/666"
+        />
+        <div
+          onClick={handlePlay}
+          style={{
+            position: "absolute", top: 0, left: 0, right: 0, bottom: 0,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            background: "rgba(0,0,0,0.5)", borderRadius: 4, opacity: 0,
+            transition: "opacity 0.3s", cursor: "pointer",
+          }}
+          className="play-overlay"
+        >
+          {isCurrentSong && isPlaying ? (
+            <PauseCircleOutlined style={{ fontSize: isMobile ? 20 : 24, color: "#fff" }} />
+          ) : (
+            <PlayCircleOutlined style={{ fontSize: isMobile ? 20 : 24, color: "#fff" }} />
+          )}
+        </div>
       </div>
 
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
           <Text
             strong
             style={{
               color: isCurrentSong ? "#1DB954" : "#fff",
-              fontSize: 14, display: "block",
+              fontSize: isMobile ? 13 : 14, display: "block",
               whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
             }}
           >
             {song.title}
           </Text>
-          {isCurrentSong && <Tag color="#1DB954" style={{ fontSize: 10, lineHeight: "16px", padding: "0 6px" }}>Đang phát</Tag>}
+          {isCurrentSong && !isMobile && <Tag color="#1DB954" style={{ fontSize: 10, lineHeight: "16px", padding: "0 6px" }}>Đang phát</Tag>}
         </div>
-        <Text style={{ color: "#888", fontSize: 12 }}>{song.artist}</Text>
+        <Text style={{ color: "#888", fontSize: isMobile ? 11 : 12 }}>{song.artist}</Text>
       </div>
 
-      <Text style={{ color: "#666", fontSize: 12, marginRight: 12, flexShrink: 0 }}>
+      <Text style={{ color: "#666", fontSize: isMobile ? 11 : 12, marginRight: isMobile ? 8 : 12, flexShrink: 0 }}>
         {formatDuration(displayDuration)}
       </Text>
 
-      <Space size={4}>
+      <Space size={isMobile ? 2 : 4}>
         {onToggleFavorite && (
           <Button
             type="text"
-            icon={isFavorite ? <HeartFilled style={{ color: "#1DB954" }} /> : <HeartOutlined style={{ color: "#888" }} />}
+            icon={isFavorite ? <HeartFilled style={{ color: "#1DB954", fontSize: isMobile ? 14 : 16 }} /> : <HeartOutlined style={{ color: "#888", fontSize: isMobile ? 14 : 16 }} />}
             size="small"
             onClick={(e) => { e.stopPropagation(); onToggleFavorite(song.id); }}
           />
         )}
-        {onAddToPlaylist && (
+        {onAddToPlaylist && !isMobile && (
           <Button
             type="text"
             icon={<PlusOutlined style={{ color: "#888" }} />}

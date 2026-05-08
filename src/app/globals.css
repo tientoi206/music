@@ -29,6 +29,10 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+#__next, .ant-layout {
+  height: 100%;
+}
+
 .ant-layout {
   background: #0f0f23 !important;
 }
@@ -100,4 +104,33 @@ body {
 
 .song-card:hover .play-overlay {
   opacity: 1 !important;
+}
+
+/* Sidebar drawer styles */
+.sidebar-drawer .ant-drawer-content-wrapper {
+  width: 260px !important;
+}
+
+.sidebar-drawer .ant-drawer-body {
+  padding: 0 !important;
+  background: #1a1a2e;
+}
+
+/* Player bar mobile */
+@media (max-width: 767px) {
+  .player-bar-desktop {
+    display: none !important;
+  }
+  .player-bar-mobile {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .player-bar-desktop {
+    display: flex !important;
+  }
+  .player-bar-mobile {
+    display: none !important;
+  }
 }

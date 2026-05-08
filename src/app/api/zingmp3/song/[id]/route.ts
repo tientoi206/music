@@ -8,8 +8,6 @@ export async function GET(
   try {
     const { id } = await params;
     
-    // Th? call API ZingMP3 d? l?y th�ng tin b�i h�t
-    // ZingMP3 API thu?ng d�ng: https://zingmp3.vn/api/song/get-song-info
     const response = await axios.get('https://zingmp3.vn/api/song/get-song-info', {
       params: { id },
       timeout: 10000,

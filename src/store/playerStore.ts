@@ -23,6 +23,7 @@ interface PlayerStore {
   toggleShuffle: () => void;
   cycleRepeatMode: () => void;
   addToQueue: (song: Song) => void;
+  removeFromQueue: (songId: string) => void;
 }
 
 export const usePlayerStore = create<PlayerStore>((set, get) => ({
@@ -81,4 +82,5 @@ export const usePlayerStore = create<PlayerStore>((set, get) => ({
   toggleShuffle: () => set((state) => ({ isShuffled: !state.isShuffled })),
   cycleRepeatMode: () => { const modes: ("none" | "one" | "all")[] = ["none", "one", "all"]; const { repeatMode } = get(); set({ repeatMode: modes[(modes.indexOf(repeatMode) + 1) % modes.length] }); },
   addToQueue: (song) => set((state) => { if (state.queue.find(s => s.id === song.id)) return state; return { queue: [...state.queue, song] }; }),
+  removeFromQueue: (songId) => set((state) => ({ queue: state.queue.filter(s => s.id !== songId) })),
 }));

@@ -1,22 +1,23 @@
 import type { Song, Album, Playlist, Favorite } from '@/types';
 
 const mockSongs: Song[] = [
-  { id: "1", title: "Hồng Nhan", artist: "Jack", thumbnail: "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/d/b/1/1/db11f9bb085242d06f298939da35a094.jpg", albumId: "1", url: "/musics/hongnhan.mp3" },
-  { id: "2", title: "Bạc Phận", artist: "Jack", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=WFY", albumId: "1", url: "/musics/bacphan.mp3" },
-  { id: "3", title: "Sóng Gió", artist: "jack", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=EL", albumId: "2", url: "/musics/songgio.mp3" },
-  { id: "4", title: "Thiên Lý Ơi", artist: "Jack", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=CT", albumId: "2", url: "/musics/thienlyoi.mp3" },
-  { id: "5", title: "Anh Nho Ra", artist: "Vu.", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=ANR", albumId: "3", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3" },
-  { id: "6", title: "Bat Tinh Yeu Len", artist: "Hoa Minzy, Tang Duy Tan", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=BTYL", albumId: "3", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3" },
-  { id: "7", title: "Cat Doi Noi Sau", artist: "Tang Duy Tan", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=CDNS", albumId: "1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3" },
-  { id: "8", title: "Anh Sao Va Bau Troi", artist: "T.R.I", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=AS", albumId: "1", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" },
-  { id: "9", title: "Hai Trieu Nam", artist: "Den x Bien", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=HTN", albumId: "2", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3" },
-  { id: "10", title: "Chiu Thuong Chiu Kho", artist: "Bich Phuong", thumbnail: "https://via.placeholder.com/48/1a1a2e/1DB954?text=CTCK", albumId: "3", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3" },
+  { id: "1", title: "Hồng Nhan", artist: "Jack", thumbnail: "https://i.vietgiaitri.com/2020/2/20/hit-hong-nhan-tron-1-tuoi-dan-mang-lien-lat-lai-bai-phong-van-nghi-van-kicm-da-nham-jack-tu-2018-f3104e.jpeg", albumId: "1", url: "/musics/hongnhan.mp3" },
+  { id: "2", title: "Bạc Phận", artist: "Jack", thumbnail: "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/4/2/5/3/425334e6f252b8c34d74d16177a5eb9d.jpg", albumId: "1", url: "/musics/bacphan.mp3" },
+  { id: "3", title: "Sóng Gió", artist: "jack", thumbnail: "https://upload.wikimedia.org/wikipedia/vi/b/bb/Jack_%26_K-ICM_-_S%C3%B3ng_gi%C3%B3.png", albumId: "1", url: "/musics/songgio.mp3" },
+  { id: "4", title: "Thiên Lý Ơi", artist: "Jack", thumbnail: "https://i.ytimg.com/vi/OrDB4jpA1g8/maxresdefault.jpg", albumId: "1", url: "/musics/thienlyoi.mp3" },
+  { id: "5", title: "Hoa Vô Sắc", artist: "Jack", thumbnail: "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/6/f/f/3/6ff330930e726af162d634a749b2d4eb.jpg", albumId: "1", url: "/musics/hoavosac.mp3" },
+  { id: "6", title: "Đừng Lo Anh Đợi Mà", artist: "MR. Siro", thumbnail: "https://i.ytimg.com/vi/BnWiFq0AxQc/maxresdefault.jpg", albumId: "3", url: "/musics/dungloanhdoima.mp3" },
+  { id: "7", title: "Day Dứt Nỗi Đau", artist: "MR. Siro", thumbnail: "https://i.ytimg.com/vi/N4Xak1n497M/maxresdefault.jpg", albumId: "3", url: "/musics/daydutnoidau.mp3" },
+  { id: "8", title: "Đi Về NHà", artist: "Đen Vâu", thumbnail: "https://i.ytimg.com/vi/vTJdVE_gjI0/maxresdefault.jpg", albumId: "2", url: "/musics/divenha.mp3" },
+  { id: "9", title: "Đưa Nhau Đi Trốn", artist: "Đen Vâu", thumbnail: "https://i1.sndcdn.com/artworks-000141815077-mm8lki-t500x500.jpg", albumId: "2", url: "/musics/duanhauditron.mp3" },
+  { id: "10", title: "Đom Đóm", artist: "Jack", thumbnail: "https://photo-resize-zmp3.zadn.vn/w600_r1x1_jpeg/cover/f/e/9/8/fe9875941d98fbbcb8aedc8960ccbc94.jpg", albumId: "1", url: "/musics/domdom.mp3" },
 ];
 
+
 const mockAlbums: Album[] = [
-  { id: "1", title: "Nhac Hot Thang 5", artist: "Nhieu nghe si", coverImage: "https://via.placeholder.com/300x180/1a1a2e/1DB954?text=Album+1", releaseYear: 2024 },
-  { id: "2", title: "V-Pop Hay Nhat", artist: "Nhieu nghe si", coverImage: "https://via.placeholder.com/300x180/1a1a2e/1DB954?text=Album+2", releaseYear: 2024 },
-  { id: "3", title: "Nhac Tre Cuoi Tuan", artist: "Nhieu nghe si", coverImage: "https://via.placeholder.com/300x180/1a1a2e/1DB954?text=Album+3", releaseYear: 2024 },
+  { id: "1", title: "Vì Tinh Tú", artist: "Jack", coverImage: "https://vietnamcopyright.vn/storage/musicans/1776843796-jack.png", releaseYear: 2026 },
+  { id: "2", title: "Dìa Dia", artist: "Đen Vâu", coverImage: "https://vcdn1-vnexpress.vnecdn.net/2022/02/09/denvau-5827-1627546466-5337-1644377203.jpg?w=680&h=0&q=100&dpr=2&fit=crop&s=rpm2cgIdVzle7xKvlbBCaA", releaseYear: 2026 },
+  { id: "3", title: "Nhạc Này Suy Phết", artist: "MR. Siro", coverImage: "https://yt3.googleusercontent.com/3sT1JSdygOdufCcMnHaCr-Pa7Le-kKKQq1IQPHhii8_bff-NMkSo2m4MDD5Pyak2S4m3p0aNcA=s900-c-k-c0x00ffffff-no-rj", releaseYear: 2026 },
 ];
 
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
